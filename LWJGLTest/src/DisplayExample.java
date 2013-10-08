@@ -1,7 +1,3 @@
-import java.io.IOException;
-import java.net.URL;
-import java.net.URLConnection;
-import java.nio.ByteBuffer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -15,31 +11,7 @@ import GLSLProgram.ShaderProgram;
 
 public class DisplayExample 
 {
-  public ByteBuffer readShader(String filename)
-  {
-    ByteBuffer buffer = null;
-    URL url = this.getClass().getResource(filename);
-    URLConnection connection;
-    try
-    {
-      connection = (URLConnection)url.openConnection();
-      java.io.InputStream is = connection.getInputStream();
-      buffer = ByteBuffer.allocateDirect(connection.getContentLength());
-      byte [] b = new byte [connection.getContentLength()];
-      is.read (b);
-      buffer.put(b);
-      buffer.flip();
-      
-    } catch (IOException e)
-    {
-      // TODO Auto-generated catch block
-      e.printStackTrace();
-      Logger.getLogger(DisplayExample.class.getName()).log(Level.SEVERE,null,e);
-    }
-    
-    return buffer;
-  }
-  
+ 
   public void initGL()
   {
     GL11.glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
