@@ -1,5 +1,6 @@
 package GLSLProgram;
 
+import java.io.File;
 import java.io.InputStream;
 import java.net.URL;
 import java.net.URLConnection;
@@ -56,6 +57,13 @@ public class ShaderProgram
       try
       {
         URL url = this.getClass().getResource(filename);
+        
+        //---
+        String debPath = ShaderProgram.class.getResource("").getPath();
+        File debFile = new File (debPath);
+        System.out.println(debFile.getAbsolutePath());
+        //---
+        
         if (url==null)
         {
           throw new Exception ("Shader program URL is null");
@@ -121,7 +129,7 @@ public class ShaderProgram
       }
       catch (Exception ex)
       {
-        System.out.println("The following file does not exist "+filename);
+        System.out.println("The following file does not exist \n"+filename);
       }
     }
   }

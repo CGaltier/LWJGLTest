@@ -9,26 +9,30 @@ import org.lwjgl.opengl.GL11;
 
 import GLSLProgram.ShaderProgram;
 
+
 public class DisplayExample 
 {
  
   public void initGL()
   {
-    GL11.glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
+    //GL11.glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
 
   }
   public void initShaders()
   {
     ShaderProgram program = new ShaderProgram();
+    program.addShader("glsl/Fragment.frag");
+    program.linkProgram();
+    program.bind();
   }
   public void displayThings ()
   {
-    GL11.glBegin(GL11.GL_POINTS);
+    /*GL11.glBegin(GL11.GL_POINTS);
     GL11.glVertex3f(0.5f,0.0f,0.0f);
     GL11.glVertex3f(0.0f,0.5f,0.0f);
     GL11.glVertex3f(0.0f,-0.5f,0.0f);
     GL11.glVertex3f(-0.5f,0.0f,0.0f);    
-    GL11.glEnd();
+    GL11.glEnd();*/
   }
 	public void start() 
 	{
